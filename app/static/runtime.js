@@ -9,12 +9,13 @@ console.log(window.location.href);
 var httpURL;
 var wsURL;
 var openWeatherAppId = '825c58f6363b3c1b01fe9532c746272c';
+var idUpdate = false;
 
 function createInstance(user, project, version, onloadCB) {
   httpURL = 'https://' + RUNTIME_URL + '/v1/' + user + '/' + project + '/' + version;
   wsURL = 'wss://' + RUNTIME_URL + '/v1/' + user + '/' + project + '/' + version;
   var oReq = new XMLHttpRequest();
-  oReq.open('PUT', httpURL + '?' + 'scope=app', true);
+  oReq.open('PUT', httpURL , true);
   oReq.setRequestHeader('content-type', 'application/json; charset=utf-8');
   oReq.setRequestHeader('accept', '');
   oReq.setRequestHeader('X-Craft-Ai-App-Id', TUTO_APP_ID);
@@ -31,7 +32,7 @@ function createInstance(user, project, version, onloadCB) {
 
 function destroyInstance(onloadCB) {
   console.log('delete');
-  //clearInterval( idUpdate );
+  idUpdate=false;
   var oReq = new XMLHttpRequest();
   oReq.open('DELETE', httpURL + '/' + instanceID, true);
   oReq.setRequestHeader('content-type', 'application/json; charset=utf-8');
@@ -61,7 +62,7 @@ function createAgent(behavior, knowledge, onloadCB, onErrorCB) {
   oReq.send(JSON.stringify(params));
 }
 
-function update() {
+function update( onloadCB) {
   var oReq = new XMLHttpRequest();
   oReq.open('POST', httpURL + '/' + instanceID + '/update', true);
   oReq.setRequestHeader('content-type', 'application/json; charset=utf-8');
@@ -69,6 +70,7 @@ function update() {
   oReq.setRequestHeader('X-Craft-Ai-App-Id', TUTO_APP_ID);
   oReq.setRequestHeader('X-Craft-Ai-App-Secret', TUTO_APP_SECRET);
   oReq.onload = function() {
+    onloadCB();
   };
   oReq.onerror = function() {
     alert('error while updating the instance');
@@ -196,8 +198,17 @@ function registerAction(jsonString, onloadCB) {
   oReq.send(jsonString);
 }
 
+function internalUpdate(){
+  if( idUpdate === true ) {
+    update( function() {
+      setTimeout( internalUpdate, 500 );
+    });
+  }
+}
+
 function doUpdate() {
-  idUpdate = setInterval(update, 500);
+  idUpdate = true;
+  internalUpdate(  );
 }
 
 function doWS() {

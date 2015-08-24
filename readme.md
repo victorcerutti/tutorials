@@ -12,4 +12,4 @@ Here is a set of tutorials that will help you develop your **craft ai** skills:
 8. [Tutorial 7: Message nodes](doc/7/index.md)
 9. [Tutorial 8: Embedded node](doc/8/index.md)
 
-And if you encounter any problem, don't hesitate to contact the support through the chat embedded in the [craft ai editor](http://editor.craft.ai/)!
+And if you encounter any problem, don't hesitate to contact the support through the chat embedded in the [craft ai editor](http://workbench.craft.ai/)!

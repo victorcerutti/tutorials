@@ -139,9 +139,10 @@ function GetCityWeather(requestID, agentID, params) {
       else {
         sendFailure(requestID, '{"weather": { "description": "No weather found for ' + city + '"}}');
       }
-    })
-    .error(sendFailure(requestID));
-  }
+    });
+    this.addEventListener('error', function() {
+      sendFailure(requestID);
+    }, true);  }
   getWeather(params.cityName);
 }
 
