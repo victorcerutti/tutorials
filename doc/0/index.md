@@ -24,6 +24,7 @@ To do so, go to
 [github.com/craft-ai/Tutorials](https://github.com/craft-ai/Tutorials), log in
 with your GitHub account and click on the **Fork** button, in the top right
 corner of the page.
+
 ![screenshot of github fork](https://raw.githubusercontent.com/craft-ai/tutorials/master/doc/0/fork.jpg "Forking")
 
 ### User configuration ###
