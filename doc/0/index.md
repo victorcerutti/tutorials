@@ -24,6 +24,7 @@ To do so, go to
 [github.com/craft-ai/Tutorials](https://github.com/craft-ai/Tutorials), log in
 with your GitHub account and click on the **Fork** button, in the top right
 corner of the page.
+![screenshot of github fork](https://raw.githubusercontent.com/craft-ai/tutorials/master/doc/0/fork.jpg "Forking")
 
 ### User configuration ###
 
@@ -47,6 +48,8 @@ the lines of `<github_username>/Tutorials`),
 - click on the "Add 1 project" button at the bottom of the list. The project will
 be added to your workspace and you can select it to start editing it using the 'pencil' button,
 - in the project explorer that appears on the left of the page, select the craft_project.json with the cog icon.
+
+![screenshot of the project settings](https://raw.githubusercontent.com/craft-ai/tutorials/master/doc/0/project_json.jpg "Application/Secret")
 
 You will end up on the **settings** page which will display the `Application ID`
 and the `Application secret` needed to run the tutorials.
