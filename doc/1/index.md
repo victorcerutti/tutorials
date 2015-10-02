@@ -21,6 +21,7 @@ Create a new behavior tree file with the path `bts/tutorials/agent_0`. Validatin
 
 From the palette, drag the [action node](http://doc.craft.ai/behaviors/actions/index.html) (<span class='craft-node-action'></span>) and drop it into the canvas below. The node will be added to the canvas and double clicking on it will open its properties editor. You will find the following properties:
 
+- The `Label` field where you can put a one-line comment that will be display above the node,
 - The `Action URI path` field where to input the name of the action that you want to call,
 - The `Input Parameters` panel where to add as many inputs as needed,
 - The `Output Parameters` panel where to add as many outputs as needed.

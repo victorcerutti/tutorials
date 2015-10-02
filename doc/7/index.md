@@ -13,6 +13,7 @@ Let's start this tutorial by adding a second agent to the mix: the webpage is al
 To demonstrate the communication possibilities, we will use **craft ai** [messaging system](http://doc.craft.ai/behaviors/messages/index.html#the-messaging-system) to have our newly created Agent 1 send the list of capitals to our previously existing Agent 0.
 
 In "agent_1.bt", add a [send message](http://doc.craft.ai/behaviors/messages/index.html#-span-class-craft-node-send-message-span-send-message-node) (<span class="craft-node-send-message"></span>) node and open its properties editor to set the channel to the string "cityMgr" and add a parameter named "content", with its source being the entry "capitals" from the instance knowledge.
+![Agent 1](https://raw.githubusercontent.com/craft-ai/tutorials/master/doc/7/send.jpg)
 This is all Agent 1 will do.
 
 Now in "agent_0.bt", we have some changes to do in order to have the following behavior tree: 
@@ -21,8 +22,12 @@ Now in "agent_0.bt", we have some changes to do in order to have the following b
 In more details, this requires to:
 
 * replace the "set" node where we initialized "result" at the beginning of the top-level sequence, by a [subscribe message](http://doc.craft.ai/behaviors/messages/index.html#-span-class-craft-node-send-message-span-send-message-node) (<span class="craft-node-send-message"></span>) node with a channel set to the string "cityMgr";
+![subscribe](https://raw.githubusercontent.com/craft-ai/tutorials/master/doc/7/subscribe.jpg)
+
 * add a "sequence" node as the second child of the priority selector;
 * add a [receive message](http://doc.craft.ai/behaviors/messages/index.html#-span-class-craft-node-receive-message-span-receive-message-node) (<span class="craft-node-receive-message"></span>) under this sequence, with a channel set to the string "cityMgr", and the "Content" field set to the "result" key of the agent knowledge;
+![receive](https://raw.githubusercontent.com/craft-ai/tutorials/master/doc/7/receive.jpg)
+
 * reparent the "until" node under the sequence, right after the "receive message" node;
 * add a "stall" action as the second children of the priority selector.
 
