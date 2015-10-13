@@ -10,8 +10,8 @@ var httpURL;
 var wsURL;
 
 function createInstance(user, project, version, onloadCB) {
-  httpURL = 'https://' + RUNTIME_URL + '/api/v1/' + user + '/' + project + '/' + version;
-  wsURL = 'wss://' + RUNTIME_URL + '/api/v1/' + user + '/' + project + '/' + version;
+  httpURL = 'https://' + RUNTIME_URL + '/v1/' + user + '/' + project + '/' + version;
+  wsURL = 'wss://' + RUNTIME_URL + '/v1/' + user + '/' + project + '/' + version;
   var oReq = new XMLHttpRequest();
   oReq.open('PUT', httpURL + '?' + 'scope=app', true);
   oReq.setRequestHeader('content-type', 'application/json; charset=utf-8');
