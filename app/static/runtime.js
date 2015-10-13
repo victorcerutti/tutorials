@@ -8,6 +8,7 @@ var agentID;
 console.log(window.location.href);
 var httpURL;
 var wsURL;
+var openWeatherAppId = '825c58f6363b3c1b01fe9532c746272c';
 
 function createInstance(user, project, version, onloadCB) {
   httpURL = 'https://' + RUNTIME_URL + '/v1/' + user + '/' + project + '/' + version;

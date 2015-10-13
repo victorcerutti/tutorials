@@ -124,7 +124,7 @@ function GetFirstElement(requestID, agentID, params) {
 
 function GetCityWeather(requestID, agentID, params) {
   function getWeather(city) {
-    $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city, function(data) {
+    $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=' + openWeatherAppId, function(data) {
       if (data.weather !== undefined) {
         sendSuccess(requestID, '{"weather":' + JSON.stringify(data.weather[0]) + '}');
       }
