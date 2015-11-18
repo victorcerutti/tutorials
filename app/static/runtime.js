@@ -23,6 +23,7 @@ function createInstance(user, project, version, onloadCB) {
   oReq.onload = function() {
     instanceID = JSON.parse(oReq.responseText).instance.instance_id;
     onloadCB(instanceID);
+    idUpdate = true;
   };
   oReq.onerror = function() {
     alert('error while creating instance');
@@ -62,7 +63,7 @@ function createAgent(behavior, knowledge, onloadCB, onErrorCB) {
   oReq.send(JSON.stringify(params));
 }
 
-function update( onloadCB) {
+function update(onloadCB) {
   var oReq = new XMLHttpRequest();
   oReq.open('POST', httpURL + '/' + instanceID + '/update', true);
   oReq.setRequestHeader('content-type', 'application/json; charset=utf-8');
@@ -198,17 +199,12 @@ function registerAction(jsonString, onloadCB) {
   oReq.send(jsonString);
 }
 
-function internalUpdate(){
-  if( idUpdate === true ) {
-    update( function() {
-      setTimeout( internalUpdate, 500 );
+function doUpdate() {
+  if(idUpdate === true) {
+    update(function() {
+      setTimeout(doUpdate, 500);
     });
   }
-}
-
-function doUpdate() {
-  idUpdate = true;
-  internalUpdate(  );
 }
 
 function doWS() {
