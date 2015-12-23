@@ -6,7 +6,7 @@ Here you will learn the basics of craft ai with the most simple behavior tree: a
 
 ## Creating the behavior ##
 
-To starting playing around with the behaviors, go to the [craft ai editor](http://editor.craft.ai/) and log in with your GitHub account.
+To starting playing around with the behaviors, go to the [craft ai editor](http://workbench.craft.ai/) and log in with your GitHub account.
 Click on the `edit` (pencil) icon on the right of your **Tutorials** project: you will be redirected to the project explorer, in which you will find all the **behavior tree** (*.bt) files.
 
 From this page you can add new **bt** files to your project by using the **Create new file** button from the menu.
